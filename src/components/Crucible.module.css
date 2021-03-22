@@ -1,0 +1,82 @@
+.main {
+    font-family: monospace;
+    padding: 1em;
+    text-align: center;
+}
+
+.stats {
+    color: #76b5e2;
+}
+
+.lensContainer {
+    position: relative;
+    width: 25vh;
+    height: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lensBackgroundContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*width: 10vh;*/
+    /*height: 10vh;*/
+}
+
+.lensBackground {
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    width: 10vh;
+    height: 10vh;
+    /*transform: translate(-50%, -50%);*/
+    background-color: #c0fffe;
+    box-shadow: 0 0 8vh 8vh #c0fffe;
+    opacity: 0.5;
+    border-radius: 5vh;
+    animation: pulse infinite 1s ease-in-out;
+}
+
+.symbolMain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10em;
+}
+
+.symbol {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.rotate {
+    font-size: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin infinite 1s linear;
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.3
+    }
+    50% {
+        opacity: 0.8
+    }
+    100% {
+        opacity: 0.3
+    }
+}

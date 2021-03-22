@@ -1,0 +1,24 @@
+.main {
+    width: 70%;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    color: #76b5e2;
+}
+
+.input {
+    width: 30vw;
+}
+
+.clearButton{
+    margin-left: 2em;
+    cursor: pointer;
+    border-radius: 0.3em;
+    padding: 0.25em;
+    background-color: #013f62;
+}

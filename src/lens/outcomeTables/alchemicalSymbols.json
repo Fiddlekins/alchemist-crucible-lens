@@ -1,0 +1,99 @@
+[
+  {
+    "name": "sulphur",
+    "type": "three-principles",
+    "symbol": "\uD83D\uDF0D",
+    "weighting": 10
+  },
+  {
+    "name": "salt",
+    "type": "three-principles",
+    "symbol": "\uD83D\uDF14",
+    "weighting": 10
+  },
+  {
+    "name": "mercury",
+    "type": "three-principles",
+    "symbol": "\u263F",
+    "weighting": 10
+  },
+  {
+    "name": "fire",
+    "type": "four-elements",
+    "symbol": "\uD83D\uDF02",
+    "weighting": 10
+  },
+  {
+    "name": "air",
+    "type": "four-elements",
+    "symbol": "\uD83D\uDF01",
+    "weighting": 10
+  },
+  {
+    "name": "water",
+    "type": "four-elements",
+    "symbol": "\uD83D\uDF04",
+    "weighting": 10
+  },
+  {
+    "name": "earth",
+    "type": "four-elements",
+    "symbol": "\uD83D\uDF03",
+    "weighting": 10
+  },
+  {
+    "name": "the-elements",
+    "type": "four-elements",
+    "symbol": "\uD83D\uDF28",
+    "weighting": 10
+  },
+  {
+    "name": "copper",
+    "type": "planets-and-metals",
+    "planet": "venus",
+    "symbol": "\u2640",
+    "weighting": 10
+  },
+  {
+    "name": "tin",
+    "type": "planets-and-metals",
+    "planet": "jupiter",
+    "symbol": "\uD83D\uDF29",
+    "weighting": 10
+  },
+  {
+    "name": "gold",
+    "type": "planets-and-metals",
+    "planet": "sun",
+    "symbol": "\u2609",
+    "weighting": 10
+  },
+  {
+    "name": "iron",
+    "type": "planets-and-metals",
+    "planet": "mars",
+    "symbol": "\u2642",
+    "weighting": 10
+  },
+  {
+    "name": "silver",
+    "type": "planets-and-metals",
+    "planet": "moon",
+    "symbol": "\u263D",
+    "weighting": 10
+  },
+  {
+    "name": "quicksilver",
+    "type": "planets-and-metals",
+    "planet": "mercury",
+    "symbol": "\u263F",
+    "weighting": 10
+  },
+  {
+    "name": "lead",
+    "type": "planets-and-metals",
+    "planet": "saturn",
+    "symbol": "\uD83D\uDF2A",
+    "weighting": 10
+  }
+]
