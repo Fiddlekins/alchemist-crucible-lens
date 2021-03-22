@@ -1,5 +1,6 @@
 import {ethers} from 'ethers';
 import contracts from './contracts/contracts.js';
+import convertTokenIdToAddress from './convertTokenIdToAddress.js';
 import getContract from './getContract.js';
 import getCrucibleData from './getCrucibleData.js';
 import throttler from './throttler.js';
@@ -22,7 +23,8 @@ export default async function getCrucibleDataForAccount(address, getCrucibleData
 			console.error(`Missing tokenId arg`, event);
 			continue;
 		}
-		crucibleIds.push(event.args.tokenId.toHexString());
+		const id = convertTokenIdToAddress(event.args.tokenId);
+		crucibleIds.push(id);
 	}
 
 	const crucibles = await Promise.all(crucibleIds.map(getCrucibleDataFunc));
