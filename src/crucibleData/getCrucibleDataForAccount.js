@@ -1,8 +1,8 @@
 import {ethers} from 'ethers';
 import contracts from './contracts/contracts.js';
-import convertTokenIdToAddress from './convertTokenIdToAddress.js';
 import getContract from './getContract.js';
 import getCrucibleData from './getCrucibleData.js';
+import getCrucibleIdsFromEvents from './getCrucibleIdsFromEvents.js';
 import throttler from './throttler.js';
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -17,16 +17,7 @@ export default async function getCrucibleDataForAccount(address, getCrucibleData
 		return crucibleFactory.queryFilter(filter, 0, "latest");
 	}, 'events');
 
-	const crucibleIds = [];
-	for (const event of crucibleEvents) {
-		if (!event.args.tokenId) {
-			console.error(`Missing tokenId arg`, event);
-			continue;
-		}
-		const id = convertTokenIdToAddress(event.args.tokenId);
-		crucibleIds.push(id);
-	}
-
+	const crucibleIds = getCrucibleIdsFromEvents(crucibleEvents);
 	const crucibles = await Promise.all(crucibleIds.map(getCrucibleDataFunc));
 
 	// There is the possibility that a Crucible has been transferred to an account which has transferred it on again to another

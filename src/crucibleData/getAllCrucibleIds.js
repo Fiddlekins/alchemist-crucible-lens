@@ -1,7 +1,7 @@
 import {ethers} from 'ethers';
 import contracts from './contracts/contracts.js';
-import convertTokenIdToAddress from './convertTokenIdToAddress.js';
 import getContract from './getContract.js';
+import getCrucibleIdsFromEvents from './getCrucibleIdsFromEvents.js';
 import throttler from './throttler.js';
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -14,16 +14,5 @@ export default async function getAllCrucibleIds(withEvent = false) {
 	const crucibleEvents = await throttler.queue(() => {
 		return crucibleFactory.queryFilter(filter, 0, "latest");
 	}, 'events');
-	// console.log(crucibleEvents.slice(0, 5));
-
-	const crucibleIds = [];
-	for (const event of crucibleEvents) {
-		if (!event.args.tokenId) {
-			console.error(`Missing tokenId arg`, event);
-			continue;
-		}
-		const id = convertTokenIdToAddress(event.args.tokenId);
-		crucibleIds.push(withEvent ? {id, event} : id);
-	}
-	return crucibleIds;
+	return getCrucibleIdsFromEvents(crucibleEvents, withEvent);
 }
