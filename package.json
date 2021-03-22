@@ -13,12 +13,17 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "buildContracts": "node src/crucibleData/contracts/build.js"
+    "buildContracts": "node src/crucibleData/contracts/build.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
