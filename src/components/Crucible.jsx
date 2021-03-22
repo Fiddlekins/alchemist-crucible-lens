@@ -23,7 +23,12 @@ export default function Crucible({data}) {
 	const date = new Date(timestamp);
 
 	// Use log scaling to bring a wide range of balance values into something we can use linearly
-	const balanceScaled = logBaseN(2, data.lockedBalance.div(1e9).div(1e9) + 1);
+	// lockedBalance is usually too big to convert to JS Number, requires dividing by 1e18 to be expressed in ETH magnitude units too
+	// .div(1e18) fails because 1e18 is too big for JS, but .div(1e9).div(1e9) works
+	// Only .div(1e9).div(1e9) doesn't work because the division truncates decimals, causing the final output to be rounded
+	// We can work around this by dividing once by 1e9 to bring it into range that JS Numbers can handle it, then do the second division in JS Numbers
+	// This preserves a reasonable number of decimal values to suit our purposes
+	const balanceScaled = logBaseN(2, ((data.lockedBalance.div(1e9).toNumber()) / 1e9) + 1);
 
 	const prng = new PRNG(id);
 	const mainHues = [];
