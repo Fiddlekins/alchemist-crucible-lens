@@ -1,5 +1,8 @@
 import {formatUnits} from "ethers/lib/utils";
 import React from 'react';
+import adjective from '../lens/equalOddsTables/adjective.json';
+import noun from '../lens/equalOddsTables/noun.json';
+import properNoun from '../lens/equalOddsTables/properNoun.json';
 import logBaseN from '../lens/logBaseN.js';
 import outcomeTable from '../lens/outcomeTable.js';
 import alchemicalSymbols from '../lens/outcomeTables/alchemicalSymbols.json';
@@ -56,6 +59,11 @@ export default function Crucible({data}) {
 
 	const animationPeriod = balanceScaled > 0 ? 20 / balanceScaled : 0;
 
+	const pickedAdjective = adjective[prng.randomInt('name', adjective.length)];
+	const pickedNoun = noun[prng.randomInt('name', noun.length)];
+	const pickedProperNoun = properNoun[prng.randomInt('name', properNoun.length)];
+	const name = `${pickedAdjective} ${pickedNoun} of ${pickedProperNoun}`;
+
 	return (
 		<div className={styles.main}>
 			<div className={styles.lensContainer}>
@@ -85,6 +93,7 @@ export default function Crucible({data}) {
 				<div className={styles.symbolMain} style={{color: mainSymbol.color}}>{mainSymbol.symbol}</div>
 			</div>
 			<div className={styles.stats}>
+				<div>Name: {name}</div>
 				<div>ID: {id}</div>
 				<div>Owner: {owner}</div>
 				<div>Locked Balance: {lockedBalance}</div>
