@@ -6,11 +6,23 @@ import crucibleDataStore from './crucibleData/crucibleDataStore.js';
 // For ease of debugging
 window.crucibleDataStore = crucibleDataStore;
 
+const url = new URL(window.location.href);
+const targetAddress = url.searchParams.get('at') || '';
+
+function updateUrl(address) {
+	if (address) {
+		url.searchParams.set('at', address);
+	} else {
+		url.searchParams.delete('at');
+	}
+	window.history.replaceState({address}, '', url);
+}
+
 function App() {
 	const crucibleListRef = useRef(null);
 	const inputRef = useRef(null);
 	const [crucibles, setCrucibles] = useState([]);
-	const [filterAddress, setFilterAddress] = useState(null);
+	const [filterAddress, setFilterAddress] = useState(targetAddress);
 
 	const checkShouldLoad = () => {
 		if (filterAddress || !crucibleListRef.current) {
@@ -27,9 +39,19 @@ function App() {
 		}
 	};
 
+	const filterByAddress = (address) => {
+		crucibleDataStore.getCrucibleDataForAccountOrCrucibleAddress(address)
+			.then((crucibles) => {
+				setCrucibles(crucibles);
+			})
+			.catch(() => {
+			});
+	};
+
 	const loadedCount = crucibleDataStore.loadedCount;
 	useEffect(() => {
 		if (filterAddress) {
+			filterByAddress(filterAddress)
 			return;
 		}
 		const crucibleLoadedCallback = () => {
@@ -49,24 +71,21 @@ function App() {
 
 	const onChange = (e) => {
 		const address = e.target.value;
+		updateUrl(address);
 		setFilterAddress(address);
-		crucibleDataStore.getCrucibleDataForAccountOrCrucibleAddress(address)
-			.then((crucibles) => {
-				setCrucibles(crucibles);
-			})
-			.catch(() => {
-			});
 	};
 
 	const onClick = () => {
-		inputRef.current.value = '';
-		setFilterAddress(null);
+		const address = '';
+		updateUrl(address);
+		setFilterAddress(address);
 	};
 
 	return (
 		<div className={styles.main}>
 			<div className={styles.header}>
-				<input className={styles.input} ref={inputRef} type="text" onChange={onChange} placeholder="Enter account or Crucible address"/>
+				<input className={styles.input} ref={inputRef} type="text" onChange={onChange}
+					   value={filterAddress} placeholder="Enter account or Crucible address"/>
 				<span className={styles.clearButton} onClick={onClick}>Clear</span>
 			</div>
 			<CrucibleList crucibles={crucibles} passedRef={crucibleListRef} onScroll={onScroll}/>
