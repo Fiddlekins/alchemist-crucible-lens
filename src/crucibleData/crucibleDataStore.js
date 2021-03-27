@@ -1,3 +1,4 @@
+import convertTokenIdToAddress from './convertTokenIdToAddress.js';
 import getAllCrucibleIds from './getAllCrucibleIds.js';
 import getCrucibleData from './getCrucibleData.js';
 import getCrucibleDataForAccount from './getCrucibleDataForAccount.js';
@@ -52,7 +53,12 @@ class CrucibleDataStore {
 	}
 
 	async getCrucibleData(idOrObject) {
-		const id = idOrObject.id || idOrObject;
+		let id = idOrObject.id || idOrObject;
+		try {
+			id = convertTokenIdToAddress(id);
+		} catch (err) {
+			// Don't care about the error if there is one
+		}
 		const event = idOrObject.event || null;
 		const data = this._loadedCrucibles.get(id);
 		if (data) {
@@ -86,6 +92,24 @@ class CrucibleDataStore {
 
 	getCrucibleDataForAccount(address) {
 		return getCrucibleDataForAccount(address, this.getCrucibleData.bind(this));
+	}
+
+	async getCrucibleDataForAccountOrCrucibleAddress(address) {
+		const [accountCrucibles, crucible] = await Promise.all([
+			this.getCrucibleDataForAccount(address).catch(() => {
+				return null;
+			}),
+			this.getCrucibleData(address).catch(() => {
+				return null;
+			})
+		]);
+		if (accountCrucibles && accountCrucibles.length) {
+			return accountCrucibles;
+		}
+		if (crucible) {
+			return [crucible];
+		}
+		return [];
 	}
 
 	getErroredCrucibles() {

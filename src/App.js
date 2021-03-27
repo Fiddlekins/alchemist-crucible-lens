@@ -50,7 +50,7 @@ function App() {
 	const onChange = (e) => {
 		const address = e.target.value;
 		setFilterAddress(address);
-		crucibleDataStore.getCrucibleDataForAccount(address)
+		crucibleDataStore.getCrucibleDataForAccountOrCrucibleAddress(address)
 			.then((crucibles) => {
 				setCrucibles(crucibles);
 			})
@@ -66,8 +66,7 @@ function App() {
 	return (
 		<div className={styles.main}>
 			<div className={styles.header}>
-				<span>Enter account address: </span>
-				<input className={styles.input} ref={inputRef} type="text" onChange={onChange}/>
+				<input className={styles.input} ref={inputRef} type="text" onChange={onChange} placeholder="Enter account or Crucible address"/>
 				<span className={styles.clearButton} onClick={onClick}>Clear</span>
 			</div>
 			<CrucibleList crucibles={crucibles} passedRef={crucibleListRef} onScroll={onScroll}/>
