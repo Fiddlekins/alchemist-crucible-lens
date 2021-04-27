@@ -23,6 +23,13 @@ export default function Crucible({data}) {
 		// don't care
 	}
 
+	let currentStakeReward = 0;
+	try {
+		currentStakeReward = formatUnits(data.currentStakeReward.toString());
+	} catch (err) {
+		// don't care
+	}
+
 	const date = new Date(timestamp);
 
 	// Use log scaling to bring a wide range of balance values into something we can use linearly
@@ -97,6 +104,7 @@ export default function Crucible({data}) {
 				<div>ID: {id}</div>
 				<div>Owner: {owner}</div>
 				<div>Locked Balance: {lockedBalance}</div>
+				<div>Current Stake Reward: {currentStakeReward}</div>
 				<div>Timestamp: {timestamp}</div>
 				<div>Date: {date.toDateString()}</div>
 			</div>

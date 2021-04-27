@@ -8,6 +8,7 @@ import throttler from './throttler.js';
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const crucibleFactory = getContract(contracts.CrucibleFactory, provider);
+const aludel = getContract(contracts.Aludel, provider);
 // const lpToken = getContract(contracts.LPToken, provider);
 
 function isError(obj) {
@@ -56,11 +57,16 @@ export default async function getCrucibleData(id) {
 	// const delegatedBalancePromise = throttler.queue(() => {
 	// 	return crucible.getBalanceDelegated(contracts.LPToken.address, owner);
 	// }, 'delegatedBalance').catch(err => err);
+	const lockedBalance = await lockedBalancePromise;
+	const currentStakeRewardPromise = throttler.queue(() => {
+		return aludel.getCurrentStakeReward(id,lockedBalance);
+	}).catch(err => err);
 	const resolveValues = await Promise.all([
 		// balancePromise,
-		lockedBalancePromise,
+		// lockedBalancePromise,
 		// delegatedBalancePromise,
-		timestampPromise
+		timestampPromise,
+		currentStakeRewardPromise
 	]);
 	for (const resolveValue of resolveValues) {
 		if (isError(resolveValue)) {
@@ -69,9 +75,10 @@ export default async function getCrucibleData(id) {
 	}
 	const [
 		// balance,
-		lockedBalance,
+		// lockedBalance,
 		// delegatedBalance,
-		timestamp
+		timestamp,
+		currentStakeReward
 	] = resolveValues;
 	return {
 		id,
@@ -79,6 +86,7 @@ export default async function getCrucibleData(id) {
 		// balance,
 		lockedBalance,
 		// delegatedBalance,
-		timestamp
+		timestamp,
+		currentStakeReward
 	};
 }
