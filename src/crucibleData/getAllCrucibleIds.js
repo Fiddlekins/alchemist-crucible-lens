@@ -1,10 +1,10 @@
-import {ethers} from 'ethers';
+import { getDefaultProvider } from '@ethersproject/providers'
 import contracts from './contracts/contracts.js';
 import getContract from './getContract.js';
 import getCrucibleIdsFromEvents from './getCrucibleIdsFromEvents.js';
 import throttler from './throttler.js';
 
-const provider = new ethers.providers.Web3Provider(window.ethereum);
+const provider = getDefaultProvider(1,{infura:"00a5b13ef0cf467698571093487743e6"});
 const crucibleFactory = getContract(contracts.CrucibleFactory, provider);
 
 export default async function getAllCrucibleIds(withEvent = false) {
