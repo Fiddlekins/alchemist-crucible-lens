@@ -1,7 +1,9 @@
 import Aludel from './AludelABI.json';
+import ChainlinkAMPLUSD from './ChainlinkAMPLUSDABI.json';
 import Crucible from './CrucibleABI.json';
 import CrucibleFactory from './CrucibleFactoryABI.json';
 import LPToken from './LPTokenABI.json';
+import Tellor from './TellorABI.json';
 import Transmuter from './TransmuterABI.json';
 
 const contracts = {
@@ -24,6 +26,14 @@ const contracts = {
 	Transmuter: {
 		address: '0xB772ce9f14FC7C7db0D4525aDb9349FBD7ce456a',
 		abi: Transmuter
+	},
+	Tellor: {
+		address: '0x577417CFaF319a1fAD90aA135E3848D2C00e68CF',
+		abi: Tellor
+	},
+	ChainlinkAMPLUSD: {
+		address: '0xe20CA8D7546932360e37E9D72c1a47334af57706',
+		abi: ChainlinkAMPLUSD
 	}
 };
 
