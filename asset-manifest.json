@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/alchemist-crucible-lens/static/css/main.e271e7e0.chunk.css",
-    "main.js": "/alchemist-crucible-lens/static/js/main.b8a5c6b1.chunk.js",
-    "main.js.map": "/alchemist-crucible-lens/static/js/main.b8a5c6b1.chunk.js.map",
-    "runtime-main.js": "/alchemist-crucible-lens/static/js/runtime-main.f3fe4592.js",
-    "runtime-main.js.map": "/alchemist-crucible-lens/static/js/runtime-main.f3fe4592.js.map",
-    "static/js/2.85c8b4f7.chunk.js": "/alchemist-crucible-lens/static/js/2.85c8b4f7.chunk.js",
-    "static/js/2.85c8b4f7.chunk.js.map": "/alchemist-crucible-lens/static/js/2.85c8b4f7.chunk.js.map",
-    "static/js/3.af428fc9.chunk.js": "/alchemist-crucible-lens/static/js/3.af428fc9.chunk.js",
-    "static/js/3.af428fc9.chunk.js.map": "/alchemist-crucible-lens/static/js/3.af428fc9.chunk.js.map",
+    "main.css": "/alchemist-crucible-lens/static/css/main.5bd3b7e9.chunk.css",
+    "main.js": "/alchemist-crucible-lens/static/js/main.df1480f1.chunk.js",
+    "main.js.map": "/alchemist-crucible-lens/static/js/main.df1480f1.chunk.js.map",
+    "runtime-main.js": "/alchemist-crucible-lens/static/js/runtime-main.0ee60281.js",
+    "runtime-main.js.map": "/alchemist-crucible-lens/static/js/runtime-main.0ee60281.js.map",
+    "static/js/2.7f9d3358.chunk.js": "/alchemist-crucible-lens/static/js/2.7f9d3358.chunk.js",
+    "static/js/2.7f9d3358.chunk.js.map": "/alchemist-crucible-lens/static/js/2.7f9d3358.chunk.js.map",
+    "static/js/3.4f6b90d2.chunk.js": "/alchemist-crucible-lens/static/js/3.4f6b90d2.chunk.js",
+    "static/js/3.4f6b90d2.chunk.js.map": "/alchemist-crucible-lens/static/js/3.4f6b90d2.chunk.js.map",
     "index.html": "/alchemist-crucible-lens/index.html",
-    "static/css/main.e271e7e0.chunk.css.map": "/alchemist-crucible-lens/static/css/main.e271e7e0.chunk.css.map",
-    "static/js/2.85c8b4f7.chunk.js.LICENSE.txt": "/alchemist-crucible-lens/static/js/2.85c8b4f7.chunk.js.LICENSE.txt"
+    "static/css/main.5bd3b7e9.chunk.css.map": "/alchemist-crucible-lens/static/css/main.5bd3b7e9.chunk.css.map",
+    "static/js/2.7f9d3358.chunk.js.LICENSE.txt": "/alchemist-crucible-lens/static/js/2.7f9d3358.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f3fe4592.js",
-    "static/js/2.85c8b4f7.chunk.js",
-    "static/css/main.e271e7e0.chunk.css",
-    "static/js/main.b8a5c6b1.chunk.js"
+    "static/js/runtime-main.0ee60281.js",
+    "static/js/2.7f9d3358.chunk.js",
+    "static/css/main.5bd3b7e9.chunk.css",
+    "static/js/main.df1480f1.chunk.js"
   ]
 }
