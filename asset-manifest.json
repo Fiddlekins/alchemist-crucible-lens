@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/alchemist-crucible-lens/static/css/main.5bd3b7e9.chunk.css",
-    "main.js": "/alchemist-crucible-lens/static/js/main.df1480f1.chunk.js",
-    "main.js.map": "/alchemist-crucible-lens/static/js/main.df1480f1.chunk.js.map",
+    "main.js": "/alchemist-crucible-lens/static/js/main.68d30814.chunk.js",
+    "main.js.map": "/alchemist-crucible-lens/static/js/main.68d30814.chunk.js.map",
     "runtime-main.js": "/alchemist-crucible-lens/static/js/runtime-main.0ee60281.js",
     "runtime-main.js.map": "/alchemist-crucible-lens/static/js/runtime-main.0ee60281.js.map",
-    "static/js/2.7f9d3358.chunk.js": "/alchemist-crucible-lens/static/js/2.7f9d3358.chunk.js",
-    "static/js/2.7f9d3358.chunk.js.map": "/alchemist-crucible-lens/static/js/2.7f9d3358.chunk.js.map",
+    "static/js/2.6bef3ab2.chunk.js": "/alchemist-crucible-lens/static/js/2.6bef3ab2.chunk.js",
+    "static/js/2.6bef3ab2.chunk.js.map": "/alchemist-crucible-lens/static/js/2.6bef3ab2.chunk.js.map",
     "static/js/3.4f6b90d2.chunk.js": "/alchemist-crucible-lens/static/js/3.4f6b90d2.chunk.js",
     "static/js/3.4f6b90d2.chunk.js.map": "/alchemist-crucible-lens/static/js/3.4f6b90d2.chunk.js.map",
     "index.html": "/alchemist-crucible-lens/index.html",
     "static/css/main.5bd3b7e9.chunk.css.map": "/alchemist-crucible-lens/static/css/main.5bd3b7e9.chunk.css.map",
-    "static/js/2.7f9d3358.chunk.js.LICENSE.txt": "/alchemist-crucible-lens/static/js/2.7f9d3358.chunk.js.LICENSE.txt"
+    "static/js/2.6bef3ab2.chunk.js.LICENSE.txt": "/alchemist-crucible-lens/static/js/2.6bef3ab2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0ee60281.js",
-    "static/js/2.7f9d3358.chunk.js",
+    "static/js/2.6bef3ab2.chunk.js",
     "static/css/main.5bd3b7e9.chunk.css",
-    "static/js/main.df1480f1.chunk.js"
+    "static/js/main.68d30814.chunk.js"
   ]
 }
