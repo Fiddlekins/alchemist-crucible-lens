@@ -1,4 +1,5 @@
 import { getDefaultProvider } from '@ethersproject/providers'
+import { ethers } from 'ethers';
 import contracts from './contracts/contracts.js';
 import getContract from './getContract.js';
 import throttler from './throttler.js';
@@ -6,7 +7,15 @@ import throttler from './throttler.js';
 // Stuff that's commented out can be enabled if desired but the lockedBalance is likely what you actually want to use
 // Keeping the unused stuff commented out reduces network load
 
-const provider = getDefaultProvider(1,{infura:"00a5b13ef0cf467698571093487743e6"});
+let provider;
+if (window.ethereum) {
+	console.log('running from wallet')
+	provider = new ethers.providers.Web3Provider(window.ethereum);
+} else {
+	console.log('running from api')
+	provider = getDefaultProvider(1, { infura: "00a5b13ef0cf467698571093487743e6" });
+}
+
 const crucibleFactory = getContract(contracts.CrucibleFactory, provider);
 // const lpToken = getContract(contracts.LPToken, provider);
 
